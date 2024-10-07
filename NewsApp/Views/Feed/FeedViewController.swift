@@ -61,7 +61,6 @@ final class FeedViewController: UIViewController {
     private func setupNavigationToolBar() {
         self.navigationItem.rightBarButtonItem = BlockBarButtonItem.item(title: Localization.settings, style: .plain, handler: { [weak self] in
             print("Login button tapped")
-            //self?.viewModel.loadData()
         })
     }
 }
@@ -94,5 +93,11 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print(indexPath.item)
+        
+        let article = viewModel.articles[indexPath.item]
+        let vm = DetailViewModel(article)
+        let vc = DetailViewController(vm)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

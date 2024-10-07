@@ -84,7 +84,7 @@ private extension AppCoordinator {
                                           tag: navControllerKey.rawValue)
             navigationController.tabBarItem = tabBarItem
             navigationController.tabBarItem.selectedImage = navControllerKey.selectedImage
-            navigationController.navigationBar.prefersLargeTitles = false
+            navigationController.navigationBar.prefersLargeTitles = true
             result[navControllerKey] = navigationController
         }
         return result

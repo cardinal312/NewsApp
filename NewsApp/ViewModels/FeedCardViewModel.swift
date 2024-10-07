@@ -41,6 +41,7 @@ final class FeedCardViewModel {
         }
     }
     
+    // TODO: - FOR PAGING IN THE FUTURE
     func reload() {
         self.page = Constants.initialPage
         self.loadData()
