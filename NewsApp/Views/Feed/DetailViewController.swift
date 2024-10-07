@@ -129,7 +129,7 @@ final class DetailViewController: UIViewController {
             articleLogo.heightAnchor.constraint(equalToConstant: 200),
             
             verticalLabelsStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            verticalLabelsStack.topAnchor.constraint(equalTo: articleLogo.bottomAnchor, constant: 60),
+            verticalLabelsStack.topAnchor.constraint(equalTo: articleLogo.bottomAnchor, constant: 80),
             verticalLabelsStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             verticalLabelsStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             verticalLabelsStack.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),

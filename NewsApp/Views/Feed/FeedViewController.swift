@@ -25,6 +25,19 @@ final class FeedViewController: UIViewController {
         return collection
     }()
     
+    private lazy var searchController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.searchResultsUpdater = self
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.hidesNavigationBarDuringPresentation = false
+        sc.searchBar.placeholder = "Поиск"
+        sc.delegate = self
+        sc.searchBar.delegate = self
+        sc.searchBar.showsBookmarkButton = true
+        sc.searchBar.setImage(UIImage(systemName: "line.horizontal.3.decrease"), for: .bookmark, state: .normal)
+        return sc
+    }()
+    
     // MARK: - LIFE CYCLE
     init(viewModel: FeedCardViewModel) {
         self.viewModel = viewModel
@@ -39,6 +52,7 @@ final class FeedViewController: UIViewController {
         super.viewDidLoad()
         self.setupCollectionView()
         self.setupNavigationToolBar()
+        self.setupSearchController()
         
         self.viewModel.updateClosure = { [weak self] in
             DispatchQueue.main.async {
@@ -58,6 +72,12 @@ final class FeedViewController: UIViewController {
         ])
     }
     
+    private func setupSearchController() {
+            self.navigationItem.searchController = searchController
+            self.definesPresentationContext = false
+            self.navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
     private func setupNavigationToolBar() {
         self.navigationItem.rightBarButtonItem = BlockBarButtonItem.item(title: Localization.settings, style: .plain, handler: { [weak self] in
             print("Login button tapped")
@@ -69,14 +89,22 @@ final class FeedViewController: UIViewController {
 extension FeedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.articles.count
+        //return self.viewModel.articles.count
+        let isSearchMode = self.viewModel.isSearchMode(searchController)
+        return isSearchMode ? self.viewModel.filteredNews.count : self.viewModel.articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = self.viewModel.articles[indexPath.item]
+        //let model = self.viewModel.articles[indexPath.item]
         let cell = collectionView.dequeueCell(cellType: FeedViewCell<FeedCardView>.self, for: indexPath)
-        cell.containerView.update(with: model)
+        
+        //
+        let isSearchMode = self.viewModel.isSearchMode(searchController)
+        let article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
+        //
+        
+        cell.containerView.update(with: article)
         return cell
     }
 }
@@ -94,10 +122,28 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
         collectionView.deselectItem(at: indexPath, animated: true)
         print(indexPath.item)
         
-        let article = viewModel.articles[indexPath.item]
+        //let article = viewModel.articles[indexPath.item]
+
+        let isSearchMode = self.viewModel.isSearchMode(searchController)
+                
+        let  article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
+
         let vm = DetailViewModel(article)
         let vc = DetailViewController(vm)
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+    // MARK: - Search Controller Functions
+extension FeedViewController: UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+            self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
+        }
+        
+        func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+            print("Search bar button called!")
+        }
+    
 }

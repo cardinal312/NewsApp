@@ -9,7 +9,9 @@ import Foundation
 
 enum URLFactory {
     
-    private static let apiKey = "7ba646457e7a40b29f317b2e43b5081f"
+    //private static let apiKey = "7ba646457e7a40b29f317b2e43b5081f" unlimited plane
+    private static let apiKey = "e61880c19e814a3d80a600195ae37eb2"
+    
     private static var baseUrl: URL {
         return baseUrlComponents.url!
     }
