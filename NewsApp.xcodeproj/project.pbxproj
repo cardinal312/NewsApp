@@ -17,6 +17,21 @@
 		FA60C9662CB3B1CA00E52337 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60C9652CB3B1CA00E52337 /* Styles.swift */; };
 		FA60C9692CB3B32700E52337 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60C9682CB3B32700E52337 /* Font.swift */; };
 		FA60C96D2CB3B4DF00E52337 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60C96C2CB3B4DF00E52337 /* FavoritesViewController.swift */; };
+		FACCFDE82CB3D9640026C985 /* FeedCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDE72CB3D9640026C985 /* FeedCardViewModel.swift */; };
+		FACCFDED2CB3DC530026C985 /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDEC2CB3DC530026C985 /* BlockBarButtonItem.swift */; };
+		FACCFDEF2CB3DCB80026C985 /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDEE2CB3DCB80026C985 /* Blocks.swift */; };
+		FACCFDF12CB3DE680026C985 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDF02CB3DE680026C985 /* FeedViewCell.swift */; };
+		FACCFDF32CB3DEA50026C985 /* FeedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDF22CB3DEA50026C985 /* FeedCardView.swift */; };
+		FACCFDF62CB3DF380026C985 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDF52CB3DF380026C985 /* UIColor + Ext.swift */; };
+		FACCFDF82CB3DFC80026C985 /* UIImage + URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDF72CB3DFC80026C985 /* UIImage + URL.swift */; };
+		FACCFDFB2CB3E0320026C985 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FACCFDFA2CB3E0320026C985 /* SDWebImage */; };
+		FACCFDFD2CB3E0320026C985 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FACCFDFC2CB3E0320026C985 /* SDWebImageMapKit */; };
+		FACCFDFF2CB3E3350026C985 /* URLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFDFE2CB3E3350026C985 /* URLFactory.swift */; };
+		FACCFE012CB3E3970026C985 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE002CB3E3970026C985 /* NetworkServiceProtocol.swift */; };
+		FACCFE032CB3E4360026C985 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE022CB3E4360026C985 /* NetworkService.swift */; };
+		FACCFE052CB3E4AB0026C985 /* NetworkService + Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE042CB3E4AB0026C985 /* NetworkService + Articles.swift */; };
+		FACCFE092CB409F10026C985 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE082CB409F10026C985 /* ScreenFactory.swift */; };
+		FACCFE0C2CB425960026C985 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE0B2CB425960026C985 /* Articles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +47,19 @@
 		FA60C9652CB3B1CA00E52337 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		FA60C9682CB3B32700E52337 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA60C96C2CB3B4DF00E52337 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		FACCFDE72CB3D9640026C985 /* FeedCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardViewModel.swift; sourceTree = "<group>"; };
+		FACCFDEC2CB3DC530026C985 /* BlockBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockBarButtonItem.swift; sourceTree = "<group>"; };
+		FACCFDEE2CB3DCB80026C985 /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
+		FACCFDF02CB3DE680026C985 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
+		FACCFDF22CB3DEA50026C985 /* FeedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardView.swift; sourceTree = "<group>"; };
+		FACCFDF52CB3DF380026C985 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
+		FACCFDF72CB3DFC80026C985 /* UIImage + URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + URL.swift"; sourceTree = "<group>"; };
+		FACCFDFE2CB3E3350026C985 /* URLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFactory.swift; sourceTree = "<group>"; };
+		FACCFE002CB3E3970026C985 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		FACCFE022CB3E4360026C985 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FACCFE042CB3E4AB0026C985 /* NetworkService + Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService + Articles.swift"; sourceTree = "<group>"; };
+		FACCFE082CB409F10026C985 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		FACCFE0B2CB425960026C985 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACCFDFD2CB3E0320026C985 /* SDWebImageMapKit in Frameworks */,
+				FACCFDFB2CB3E0320026C985 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +95,12 @@
 			isa = PBXGroup;
 			children = (
 				FA60C9612CB3B14400E52337 /* Application */,
+				FACCFE0A2CB425560026C985 /* Models */,
 				FA60C9672CB3B31400E52337 /* Views */,
-				FA60C96A2CB3B35500E52337 /* Services */,
+				FACCFDE62CB3D92F0026C985 /* ViewModels */,
+				FACCFDF42CB3DF1A0026C985 /* Extensions */,
+				FACCFDEA2CB3DC300026C985 /* Common */,
+				FA60C96A2CB3B35500E52337 /* Network */,
 				FA60C9622CB3B16600E52337 /* Helpers */,
 				FACCFDE42CB3C87A0026C985 /* Support */,
 			);
@@ -85,7 +119,6 @@
 		FA60C9622CB3B16600E52337 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FA60C95F2CB3B0DD00E52337 /* ReuseIdentifier.swift */,
 				FA60C9632CB3B1A300E52337 /* Localization.swift */,
 				FA60C9652CB3B1CA00E52337 /* Styles.swift */,
 				FA60C9682CB3B32700E52337 /* Font.swift */,
@@ -96,17 +129,22 @@
 		FA60C9672CB3B31400E52337 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA60C94D2CB3A88B00E52337 /* FeedViewController.swift */,
+				FACCFDE52CB3D9170026C985 /* Feed */,
+				FACCFE062CB409C80026C985 /* Factory */,
 				FA60C96C2CB3B4DF00E52337 /* FavoritesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FA60C96A2CB3B35500E52337 /* Services */ = {
+		FA60C96A2CB3B35500E52337 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FACCFDFE2CB3E3350026C985 /* URLFactory.swift */,
+				FACCFE002CB3E3970026C985 /* NetworkServiceProtocol.swift */,
+				FACCFE022CB3E4360026C985 /* NetworkService.swift */,
+				FACCFE042CB3E4AB0026C985 /* NetworkService + Articles.swift */,
 			);
-			path = Services;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FACCFDE42CB3C87A0026C985 /* Support */ = {
@@ -117,6 +155,75 @@
 				FA60C9572CB3A88E00E52337 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		FACCFDE52CB3D9170026C985 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFDE92CB3D99E0026C985 /* Views */,
+				FA60C94D2CB3A88B00E52337 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FACCFDE62CB3D92F0026C985 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFDE72CB3D9640026C985 /* FeedCardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FACCFDE92CB3D99E0026C985 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFDF02CB3DE680026C985 /* FeedViewCell.swift */,
+				FACCFDF22CB3DEA50026C985 /* FeedCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FACCFDEA2CB3DC300026C985 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFDEB2CB3DC3A0026C985 /* UI */,
+				FACCFDEE2CB3DCB80026C985 /* Blocks.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FACCFDEB2CB3DC3A0026C985 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFDEC2CB3DC530026C985 /* BlockBarButtonItem.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FACCFDF42CB3DF1A0026C985 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA60C95F2CB3B0DD00E52337 /* ReuseIdentifier.swift */,
+				FACCFDF52CB3DF380026C985 /* UIColor + Ext.swift */,
+				FACCFDF72CB3DFC80026C985 /* UIImage + URL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FACCFE062CB409C80026C985 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFE082CB409F10026C985 /* ScreenFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		FACCFE0A2CB425560026C985 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFE0B2CB425960026C985 /* Articles.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +242,10 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+				FACCFDFA2CB3E0320026C985 /* SDWebImage */,
+				FACCFDFC2CB3E0320026C985 /* SDWebImageMapKit */,
+			);
 			productName = "News App";
 			productReference = FA60C9462CB3A88B00E52337 /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +274,9 @@
 				Base,
 			);
 			mainGroup = FA60C93D2CB3A88B00E52337;
+			packageReferences = (
+				FACCFDF92CB3E0320026C985 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = FA60C9472CB3A88B00E52337 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,13 +303,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACCFDF62CB3DF380026C985 /* UIColor + Ext.swift in Sources */,
 				FA60C95E2CB3AFBB00E52337 /* AppCoordinator.swift in Sources */,
 				FA60C9642CB3B1A300E52337 /* Localization.swift in Sources */,
+				FACCFE052CB3E4AB0026C985 /* NetworkService + Articles.swift in Sources */,
 				FA60C96D2CB3B4DF00E52337 /* FavoritesViewController.swift in Sources */,
+				FACCFE032CB3E4360026C985 /* NetworkService.swift in Sources */,
+				FACCFE012CB3E3970026C985 /* NetworkServiceProtocol.swift in Sources */,
+				FACCFE0C2CB425960026C985 /* Articles.swift in Sources */,
+				FACCFDE82CB3D9640026C985 /* FeedCardViewModel.swift in Sources */,
 				FA60C9692CB3B32700E52337 /* Font.swift in Sources */,
+				FACCFDFF2CB3E3350026C985 /* URLFactory.swift in Sources */,
+				FACCFDF32CB3DEA50026C985 /* FeedCardView.swift in Sources */,
 				FA60C94E2CB3A88B00E52337 /* FeedViewController.swift in Sources */,
+				FACCFDEF2CB3DCB80026C985 /* Blocks.swift in Sources */,
 				FA60C9662CB3B1CA00E52337 /* Styles.swift in Sources */,
+				FACCFE092CB409F10026C985 /* ScreenFactory.swift in Sources */,
+				FACCFDF12CB3DE680026C985 /* FeedViewCell.swift in Sources */,
+				FACCFDF82CB3DFC80026C985 /* UIImage + URL.swift in Sources */,
 				FA60C94A2CB3A88B00E52337 /* AppDelegate.swift in Sources */,
+				FACCFDED2CB3DC530026C985 /* BlockBarButtonItem.swift in Sources */,
 				FA60C9602CB3B0DD00E52337 /* ReuseIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +546,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FACCFDF92CB3E0320026C985 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FACCFDFA2CB3E0320026C985 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FACCFDF92CB3E0320026C985 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		FACCFDFC2CB3E0320026C985 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FACCFDF92CB3E0320026C985 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA60C93E2CB3A88B00E52337 /* Project object */;
 }

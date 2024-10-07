@@ -37,18 +37,16 @@ private extension AppCoordinator {
     private func setupFeed() {
         guard let navController = self.navigationControllers[.feed] else { fatalError("can't find navController") }
         
-        let vc = FeedViewController()
+        let vc = ScreenFactory.make(vc: .feed)
         vc.navigationItem.title = NavControllerType.feed.title
-        vc.view.backgroundColor = .yellow
         navController.setViewControllers([vc], animated: false)
     }
     
     private func setupFavorites() {
         guard let navController = self.navigationControllers[.favorites] else { fatalError("can't find navController") }
         
-        let vc = FavoritesViewController()
+        let vc = ScreenFactory.make(vc: .favorite)
         vc.navigationItem.title = NavControllerType.favorites.title
-        vc.view.backgroundColor = .blue
         navController.setViewControllers([vc], animated: false)
     }
     

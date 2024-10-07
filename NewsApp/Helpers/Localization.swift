@@ -8,6 +8,8 @@
 import Foundation
 
 public enum Localization {
-    static let feed = "Feed"
-    static let favorites = "Favorites"
+    static let feed = "Лента"
+    static let favorites = "Избранные"
+    
+    static let settings = ""
 }

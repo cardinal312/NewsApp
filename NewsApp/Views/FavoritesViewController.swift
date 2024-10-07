@@ -13,3 +13,4 @@ final class FavoritesViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
