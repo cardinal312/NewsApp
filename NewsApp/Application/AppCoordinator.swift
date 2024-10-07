@@ -44,9 +44,11 @@ private extension AppCoordinator {
     
     private func setupFavorites() {
         guard let navController = self.navigationControllers[.favorites] else { fatalError("can't find navController") }
-        
+    
         let vc = ScreenFactory.make(vc: .favorite)
         vc.navigationItem.title = NavControllerType.favorites.title
+        navController.navigationBar.prefersLargeTitles = true
+        navController.navigationItem.largeTitleDisplayMode = .always
         navController.setViewControllers([vc], animated: false)
     }
     

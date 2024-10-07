@@ -123,13 +123,13 @@ final class DetailViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             articleLogo.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            articleLogo.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
+            articleLogo.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 50),
             articleLogo.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             articleLogo.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             articleLogo.heightAnchor.constraint(equalToConstant: 200),
             
             verticalLabelsStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            verticalLabelsStack.topAnchor.constraint(equalTo: articleLogo.bottomAnchor, constant: 80),
+            verticalLabelsStack.topAnchor.constraint(equalTo: articleLogo.bottomAnchor, constant: 60),
             verticalLabelsStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             verticalLabelsStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             verticalLabelsStack.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),

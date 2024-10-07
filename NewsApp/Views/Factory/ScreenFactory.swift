@@ -17,8 +17,8 @@ final class ScreenFactory {
             let vc = FeedViewController(viewModel: viewModel)
             return vc
         case .favorite:
-            let vc = FavoritesViewController()
-            vc.view.backgroundColor = .blue
+            let viewModel = FavoritesViewModel()
+            let vc = FavoritesViewController(viewModel: viewModel)
             return vc
         }
     }

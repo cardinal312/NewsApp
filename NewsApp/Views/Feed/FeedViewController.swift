@@ -8,21 +8,21 @@
 import UIKit
 
 final class FeedViewController: UIViewController {
-
+    
     // MARK: - VARIABLES
     private var viewModel: FeedCardViewModel
     
     // MARK: - UI COMPONENTS
     private lazy var feedCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.register(FeedViewCell<FeedCardView>.self)
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .white
-        collection.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        collection.delegate = self
-        collection.dataSource = self
-        return collection
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(FeedViewCell<FeedCardView>.self)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = .white
+        cv.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        cv.delegate = self
+        cv.dataSource = self
+        return cv
     }()
     
     private lazy var searchController: UISearchController = {
@@ -30,11 +30,11 @@ final class FeedViewController: UIViewController {
         sc.searchResultsUpdater = self
         sc.obscuresBackgroundDuringPresentation = false
         sc.hidesNavigationBarDuringPresentation = false
-        sc.searchBar.placeholder = "Поиск"
+        sc.searchBar.placeholder = "Поиск.."
         sc.delegate = self
         sc.searchBar.delegate = self
         sc.searchBar.showsBookmarkButton = true
-        sc.searchBar.setImage(UIImage(systemName: "line.horizontal.3.decrease"), for: .bookmark, state: .normal)
+        sc.searchBar.setImage(UIImage(systemName: .searchBarIcon), for: .bookmark, state: .normal)
         return sc
     }()
     
@@ -47,11 +47,10 @@ final class FeedViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCollectionView()
-        self.setupNavigationToolBar()
         self.setupSearchController()
         
         self.viewModel.updateClosure = { [weak self] in
@@ -73,19 +72,13 @@ final class FeedViewController: UIViewController {
     }
     
     private func setupSearchController() {
-            self.navigationItem.searchController = searchController
-            self.definesPresentationContext = false
-            self.navigationItem.hidesSearchBarWhenScrolling = true
-    }
-    
-    private func setupNavigationToolBar() {
-        self.navigationItem.rightBarButtonItem = BlockBarButtonItem.item(title: Localization.settings, style: .plain, handler: { [weak self] in
-            print("Login button tapped")
-        })
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = false
+        self.navigationItem.hidesSearchBarWhenScrolling = true
     }
 }
 
-    // MARK: - COLLECTION VIEW METHODS
+// MARK: - COLLECTION VIEW METHODS
 extension FeedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,14 +89,10 @@ extension FeedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let model = self.viewModel.articles[indexPath.item]
-        let cell = collectionView.dequeueCell(cellType: FeedViewCell<FeedCardView>.self, for: indexPath)
         
-        //
+        let cell = collectionView.dequeueCell(cellType: FeedViewCell<FeedCardView>.self, for: indexPath)
         let isSearchMode = self.viewModel.isSearchMode(searchController)
         let article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
-        //
-        
         cell.containerView.update(with: article)
         return cell
     }
@@ -120,18 +109,14 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print(indexPath.item)
         
-        //let article = viewModel.articles[indexPath.item]
-
         let isSearchMode = self.viewModel.isSearchMode(searchController)
-                
         let  article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
-
         let vm = DetailViewModel(article)
         let vc = DetailViewController(vm)
+        //self.navigationController?.pushViewController(vc, animated: true)
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        NotificationCenter.default.post(name: .favorites, object: nil, userInfo: ["data" : article])
     }
 }
 
@@ -139,11 +124,10 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
 extension FeedViewController: UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
-            self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
-        }
-        
-        func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-            print("Search bar button called!")
-        }
+        self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
+    }
     
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        print("Search bar button called!")
+    }
 }

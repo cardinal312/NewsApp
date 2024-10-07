@@ -11,6 +11,5 @@ public enum Localization {
     static let feed = "Новости"
     static let favorites = "Избранные"
     static let details = "Подробнее"
-    
     static let settings = ""
 }

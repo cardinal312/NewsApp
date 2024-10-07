@@ -34,6 +34,10 @@
 		FACCFE0C2CB425960026C985 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE0B2CB425960026C985 /* Articles.swift */; };
 		FACCFE102CB438420026C985 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE0F2CB438420026C985 /* DetailViewController.swift */; };
 		FACCFE122CB43A1E0026C985 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE112CB43A1E0026C985 /* DetailViewModel.swift */; };
+		FACCFE142CB46C9C0026C985 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE132CB46C9C0026C985 /* FavoritesViewModel.swift */; };
+		FACCFE162CB46E480026C985 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE152CB46E480026C985 /* String + Ext.swift */; };
+		FACCFE192CB46EE50026C985 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE182CB46EE50026C985 /* FavoriteTableViewCell.swift */; };
+		FACCFE1B2CB472450026C985 /* Notification + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCFE1A2CB472450026C985 /* Notification + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		FACCFE0B2CB425960026C985 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		FACCFE0F2CB438420026C985 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FACCFE112CB43A1E0026C985 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		FACCFE132CB46C9C0026C985 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		FACCFE152CB46E480026C985 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		FACCFE182CB46EE50026C985 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		FACCFE1A2CB472450026C985 /* Notification + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,7 @@
 			children = (
 				FACCFDE72CB3D9640026C985 /* FeedCardViewModel.swift */,
 				FACCFE112CB43A1E0026C985 /* DetailViewModel.swift */,
+				FACCFE132CB46C9C0026C985 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +221,8 @@
 				FA60C95F2CB3B0DD00E52337 /* ReuseIdentifier.swift */,
 				FACCFDF52CB3DF380026C985 /* UIColor + Ext.swift */,
 				FACCFDF72CB3DFC80026C985 /* UIImage + URL.swift */,
+				FACCFE152CB46E480026C985 /* String + Ext.swift */,
+				FACCFE1A2CB472450026C985 /* Notification + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,9 +246,18 @@
 		FACCFE0D2CB437F40026C985 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				FACCFE172CB46EB00026C985 /* Views */,
 				FA60C96C2CB3B4DF00E52337 /* FavoritesViewController.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		FACCFE172CB46EB00026C985 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FACCFE182CB46EE50026C985 /* FavoriteTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,18 +343,22 @@
 				FACCFE052CB3E4AB0026C985 /* NetworkService + Articles.swift in Sources */,
 				FA60C96D2CB3B4DF00E52337 /* FavoritesViewController.swift in Sources */,
 				FACCFE032CB3E4360026C985 /* NetworkService.swift in Sources */,
+				FACCFE1B2CB472450026C985 /* Notification + Ext.swift in Sources */,
 				FACCFE012CB3E3970026C985 /* NetworkServiceProtocol.swift in Sources */,
+				FACCFE192CB46EE50026C985 /* FavoriteTableViewCell.swift in Sources */,
 				FACCFE0C2CB425960026C985 /* Articles.swift in Sources */,
 				FACCFDE82CB3D9640026C985 /* FeedCardViewModel.swift in Sources */,
 				FA60C9692CB3B32700E52337 /* Font.swift in Sources */,
 				FACCFDFF2CB3E3350026C985 /* URLFactory.swift in Sources */,
 				FACCFE122CB43A1E0026C985 /* DetailViewModel.swift in Sources */,
+				FACCFE162CB46E480026C985 /* String + Ext.swift in Sources */,
 				FACCFE102CB438420026C985 /* DetailViewController.swift in Sources */,
 				FACCFDF32CB3DEA50026C985 /* FeedCardView.swift in Sources */,
 				FA60C94E2CB3A88B00E52337 /* FeedViewController.swift in Sources */,
 				FACCFDEF2CB3DCB80026C985 /* Blocks.swift in Sources */,
 				FA60C9662CB3B1CA00E52337 /* Styles.swift in Sources */,
 				FACCFE092CB409F10026C985 /* ScreenFactory.swift in Sources */,
+				FACCFE142CB46C9C0026C985 /* FavoritesViewModel.swift in Sources */,
 				FACCFDF12CB3DE680026C985 /* FeedViewCell.swift in Sources */,
 				FACCFDF82CB3DFC80026C985 /* UIImage + URL.swift in Sources */,
 				FA60C94A2CB3A88B00E52337 /* AppDelegate.swift in Sources */,
