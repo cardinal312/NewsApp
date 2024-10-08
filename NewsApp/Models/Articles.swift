@@ -8,9 +8,11 @@
 import Foundation
 
 struct Article: Decodable, Hashable {
-    let identifier: String = UUID().uuidString
+    let identifier: String
     let title: String?
     let description: String?
     let urlToImage: String?
     let content: String?
 }
+
+

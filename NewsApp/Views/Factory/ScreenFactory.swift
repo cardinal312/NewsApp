@@ -17,7 +17,8 @@ final class ScreenFactory {
             let vc = FeedViewController(viewModel: viewModel)
             return vc
         case .favorite:
-            let viewModel = FavoritesViewModel()
+            let storageManager = CoreDataManager()
+            let viewModel = FavoritesViewModel(storageManager: storageManager)
             let vc = FavoritesViewController(viewModel: viewModel)
             return vc
         }

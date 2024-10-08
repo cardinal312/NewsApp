@@ -111,12 +111,10 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let isSearchMode = self.viewModel.isSearchMode(searchController)
-        let  article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
+        let article = isSearchMode ? self.viewModel.filteredNews[indexPath.item] : self.viewModel.articles[indexPath.item]
         let vm = DetailViewModel(article)
         let vc = DetailViewController(vm)
-        //self.navigationController?.pushViewController(vc, animated: true)
-        
-        NotificationCenter.default.post(name: .favorites, object: nil, userInfo: ["data" : article])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -131,3 +129,4 @@ extension FeedViewController: UISearchBarDelegate, UISearchResultsUpdating, UISe
         print("Search bar button called!")
     }
 }
+

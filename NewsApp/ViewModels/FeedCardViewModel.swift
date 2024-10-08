@@ -29,7 +29,7 @@ final class FeedCardViewModel {
     }
     
     func loadData() {
-            let params = ArticlesRequestParams(pageSize: 30, page: self.page, search: "nature")
+            let params = ArticlesRequestParams(pageSize: 20, page: self.page, search: "world")
             self.articlesNetworkService.requestArticles(params: params) { [weak self] result in
                 guard let self = self else { return }
                 switch result {

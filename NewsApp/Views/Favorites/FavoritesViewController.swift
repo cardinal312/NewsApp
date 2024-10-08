@@ -9,7 +9,6 @@ import UIKit
 
 final class FavoritesViewController: UIViewController {
     
-    
     // MARK: - VARIABLES
     private var viewModel: FavoritesViewModel
     
@@ -18,6 +17,7 @@ final class FavoritesViewController: UIViewController {
         let tv = UITableView(frame: .zero, style: .grouped)
         tv.register(FavoriteTableViewCell.self)
         tv.showsVerticalScrollIndicator = false
+        tv.backgroundColor = .white
         tv.delegate = self
         tv.dataSource = self
         return tv
@@ -35,7 +35,6 @@ final class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
         
         viewModel.updateClosure = { [weak self] in
             DispatchQueue.main.async {
@@ -46,12 +45,13 @@ final class FavoritesViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.favoritesTableView.frame = view.bounds
+        self.setupUI()
     }
     
     // MARK: - SETUP UI
     private func setupUI() {
         self.view.addSubview(favoritesTableView)
+        self.favoritesTableView.frame = view.bounds
     }
 }
 
@@ -65,6 +65,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueCell(cellType: FavoriteTableViewCell.self, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
         let article = viewModel.articles[indexPath.row]
+        //let article = Article(title: "sfsdfsdf", description: "fsdfdsfds", urlToImage: "https://avatars.mds.yandex.net/i?id=0c2561f992a88f7ac75d3ff6d9664fbb_l-4944748-images-thumbs&n=13", content: "dsgdgsfgfdg")
         cell.update(with: article)
         return cell
     }
@@ -75,14 +76,20 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     // TODO: DELETE ROWS
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //
+        switch editingStyle {
+        case .delete:
+            
+            // MARK: - DELETION DATA FROM LOCAL STORAGE
+            let article = viewModel.articles[indexPath.row]
+            viewModel.deleteItem(tableView: tableView, article: article, indexPath: indexPath)
+        default: break
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let article = viewModel.articles[indexPath.row]
-        
         DispatchQueue.main.async { [weak self] in
             let vm = DetailViewModel(article)
             let vc = DetailViewController(vm)

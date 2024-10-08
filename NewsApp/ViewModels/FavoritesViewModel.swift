@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 final class FavoritesViewModel {
+    
+    // MARK: - VARIABLES
+    private let storageManager: StorageManagerProtocol
+    var updateClosure: VoidClosure?
     
     private(set) var articles: [Article] = [] {
         didSet {
@@ -17,21 +22,55 @@ final class FavoritesViewModel {
         }
     }
     
-    var updateClosure: VoidClosure?
-    
-    init() {
+    // MARK: - LIFE CYCLE
+    init(storageManager: StorageManagerProtocol) {
+        self.storageManager = storageManager
+        self.fetchLocalStorageFromDownload()
         NotificationCenter.default.addObserver(self, selector: #selector(getArticlesFromFeedView(notification:)), name: .favorites, object: nil)
     }
     
     @objc private func getArticlesFromFeedView(notification: Notification) {
-        guard let data = notification.userInfo else { return }
-        guard let article = data["data"] as? Article else { return }
-        
         DispatchQueue.main.async {
-            if !self.articles.contains(article) {
-                self.articles.append(article)
-            }
-            
+            self.fetchLocalStorageFromDownload()
         }
+    }
+    
+    private func fetchLocalStorageFromDownload() {
+        self.storageManager.fetchArticles { [weak self] results in
+            guard let self else { return }
+            switch results {
+            case .success(let articless):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.articles = articless
+                    self.updateClosure?()
+                }
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
+    
+    func deleteItem(tableView: UITableView, article: Article, indexPath: IndexPath) {
+        let articleItem = ArticleModel()
+        articleItem.title = article.title
+        articleItem.descript = article.description
+        articleItem.urlToImage = article.urlToImage
+        articleItem.content = article.content
+        
+        storageManager.deleteWith(model: articleItem) { [weak self] results in
+            guard let self else { return }
+            switch results {
+            case .success(let success):
+                print("Successfully deleted data from db", success)
+            case .failure(let failure):
+                print("Fail delete data from db", failure)
+            }
+        }
+        
+        self.articles.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        self.fetchLocalStorageFromDownload()
+        self.updateClosure?()
     }
 }

@@ -49,6 +49,7 @@ private extension AppCoordinator {
         vc.navigationItem.title = NavControllerType.favorites.title
         navController.navigationBar.prefersLargeTitles = true
         navController.navigationItem.largeTitleDisplayMode = .always
+        navController.view.backgroundColor = .white
         navController.setViewControllers([vc], animated: false)
     }
     
@@ -67,13 +68,13 @@ private extension AppCoordinator {
         } else {
             UINavigationBar.appearance().tintColor = .black
             UINavigationBar.appearance().barTintColor = .purple
-            UINavigationBar.appearance().isTranslucent = false
+            UINavigationBar.appearance().isTranslucent = true
         }
         UINavigationBar.appearance().shadowImage = UIImage()
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         UITabBar.appearance().tintColor = .systemBlue
-        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().backgroundColor = .gray.withAlphaComponent(0.1)
     }
     
     private static func makeNavigationControllers() -> [NavControllerType: UINavigationController] {
