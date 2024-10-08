@@ -8,3 +8,6 @@ STACK:
 
 USED FRAMEWORKS:
 - SDWebimage
+
+API:
+NEWSAPI.ORG (apiKey in URLFactory file)
