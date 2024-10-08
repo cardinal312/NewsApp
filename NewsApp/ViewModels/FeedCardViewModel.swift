@@ -37,7 +37,7 @@ final class FeedCardViewModel {
                     self.articles = response.articles
                     //self.page += 1
                 case .failure(let error):
-                    print("CAN'T GOT ARTICLES WITH ERROR -->> \(error.localizedDescription) <<--")
+                    print("CAN'T GOT ARTICLES WITH ERROR -->> \(error.localizedDescription) <<--\nNEED NEW -->>APY KEY<<-- for URLFACTORY FILE")
                 }
             }
         }

@@ -91,14 +91,14 @@ final class CoreDataManager: StorageManagerProtocol {
             let models = try context.fetch(request)
             for model in models {
                 let article = Article(identifier: model.id ?? UUID().uuidString, title: model.title, description: model.descript, urlToImage: model.urlToImage, content: model.content)
-                    queue.sync {
+                queue.sync {
                     articles.append(article)
-                    }
+                    //}
+                }
+                DispatchQueue.main.async { [weak self] in
+                    compleation(.success(articles))
+                }
             }
-            DispatchQueue.main.async { [weak self] in
-                compleation(.success(articles))
-            }
-            
         } catch {
             DispatchQueue.main.async { [weak self] in
                 compleation(.failure(.failedToFetchDataFromDataBase))

@@ -91,14 +91,14 @@ final class FeedCardView: UIView {
             if toogle {
                     //self.heartImageView.image = UIImage(systemName: "heart")
                 heartImageView.tintColor = .secondarySystemFill
-                    print("GOT WHITE HEART")
+                    print("SELECTED WHITE HEART")
             
             } else {
                 UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 5, initialSpringVelocity: 5) {
                     self.heartImageView.tintColor = .red
                         self.heartImageView.image = UIImage(systemName: "heart.fill")
                         // TODO: - SAVE TO STORAGE
-                        print("GOT RED HEART")
+                        print("SELECTED RED HEART")
                     self.closure?()
                 }
             }
