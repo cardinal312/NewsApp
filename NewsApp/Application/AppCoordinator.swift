@@ -73,7 +73,7 @@ private extension AppCoordinator {
         UINavigationBar.appearance().shadowImage = UIImage()
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        UITabBar.appearance().tintColor = .systemBlue
+        UITabBar.appearance().tintColor = .systemGreen
         UITabBar.appearance().backgroundColor = .gray.withAlphaComponent(0.1)
     }
     
@@ -118,9 +118,9 @@ fileprivate enum NavControllerType: Int, CaseIterable {
     var selectedImage: UIImage? {
         switch self {
         case .feed:
-            return Styles.TabbarSelectedItem.feed
+            return Styles.TabbarItem.feed
         case .favorites:
-            return Styles.TabbarSelectedItem.favorites
+            return Styles.TabbarItem.favorites
         }
     }
 }
