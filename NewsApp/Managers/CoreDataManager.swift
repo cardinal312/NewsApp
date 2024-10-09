@@ -11,7 +11,7 @@ import CoreData
 protocol StorageManagerProtocol {
     func saveAllAricle(model: Article, compleation: @escaping (Result<Void, DataBaseError>) -> Void)
     func fetchArticles(compleation: @escaping (Result<[Article], DataBaseError>) -> Void)
-    func deleteWith(model: ArticleModel, compleation: @escaping (Result<Void, DataBaseError>) -> Void)
+    func deleteWith(model: ArticleItem, compleation: @escaping (Result<Void, DataBaseError>) -> Void)
     
 }
 
@@ -27,7 +27,7 @@ final class CoreDataManager: StorageManagerProtocol {
     
     // MARK: Core Data Stack
     private lazy var persistentContainer: NSPersistentContainer = { // persistent container
-        let container = NSPersistentContainer(name: "ArticleModel")
+        let container = NSPersistentContainer(name: "ArticleItem")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -53,7 +53,7 @@ final class CoreDataManager: StorageManagerProtocol {
     // MARK: - ADDITION TO DATABASE
     func saveAllAricle(model: Article, compleation: @escaping (Result<Void, DataBaseError>) -> Void) {
         let context = persistentContainer.viewContext
-        let item = ArticleModel(context: context)
+        let item = ArticleItem(context: context)
         
     // MARK: - Readers and Writers Problem Resolving (Multi Threding)
         queue.async(flags: .barrier) { [weak self] in
@@ -84,8 +84,8 @@ final class CoreDataManager: StorageManagerProtocol {
         var articles = [Article]()
         
         let context = persistentContainer.viewContext
-        let request: NSFetchRequest<ArticleModel>
-        request = ArticleModel.fetchRequest()
+        let request: NSFetchRequest<ArticleItem>
+        request = ArticleItem.fetchRequest()
         
         do {
             let models = try context.fetch(request)
@@ -107,7 +107,7 @@ final class CoreDataManager: StorageManagerProtocol {
     }
     
     // MARK: - DELETION FROM DATABASE
-    func deleteWith(model: ArticleModel, compleation: @escaping (Result<Void, DataBaseError>) -> Void) {
+    func deleteWith(model: ArticleItem, compleation: @escaping (Result<Void, DataBaseError>) -> Void) {
         let context = persistentContainer.viewContext
         context.delete(model)
         

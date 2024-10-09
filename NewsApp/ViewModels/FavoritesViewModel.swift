@@ -53,7 +53,7 @@ final class FavoritesViewModel {
     
         // MARK: - CALLED IN VC TABLE VIEW METHOD
     func deleteItem(tableView: UITableView, article: Article, indexPath: IndexPath) {
-        let articleItem = ArticleModel()
+        let articleItem = ArticleItem()
         articleItem.title = article.title
         articleItem.descript = article.description
         articleItem.urlToImage = article.urlToImage
