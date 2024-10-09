@@ -65,7 +65,6 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueCell(cellType: FavoriteTableViewCell.self, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
         let article = viewModel.articles[indexPath.row]
-        //let article = Article(title: "sfsdfsdf", description: "fsdfdsfds", urlToImage: "https://avatars.mds.yandex.net/i?id=0c2561f992a88f7ac75d3ff6d9664fbb_l-4944748-images-thumbs&n=13", content: "dsgdgsfgfdg")
         cell.update(with: article)
         return cell
     }
