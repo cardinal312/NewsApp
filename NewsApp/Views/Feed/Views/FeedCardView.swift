@@ -37,7 +37,7 @@ final class FeedCardView: UIView {
     }(UIImageView())
     
     private lazy var heartImageView: UIImageView = {
-        $0.image = UIImage(systemName: "heart")
+        $0.image = Styles.TabbarItem.favorites
         $0.image?.withRenderingMode(.alwaysOriginal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit

@@ -71,7 +71,6 @@ private extension AppCoordinator {
             UINavigationBar.appearance().isTranslucent = true
         }
         UINavigationBar.appearance().shadowImage = UIImage()
-        
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         UITabBar.appearance().tintColor = .systemGreen
         UITabBar.appearance().backgroundColor = .gray.withAlphaComponent(0.1)
@@ -86,7 +85,6 @@ private extension AppCoordinator {
                                           image: navControllerKey.image,
                                           tag: navControllerKey.rawValue)
             navigationController.tabBarItem = tabBarItem
-            navigationController.tabBarItem.selectedImage = navControllerKey.selectedImage
             //navigationController.navigationBar.prefersLargeTitles = true
             result[navControllerKey] = navigationController
         }
@@ -107,15 +105,6 @@ fileprivate enum NavControllerType: Int, CaseIterable {
     }
     
     var image: UIImage? {
-        switch self {
-        case .feed:
-            return Styles.TabbarItem.feed
-        case .favorites:
-            return Styles.TabbarItem.favorites
-        }
-    }
-    
-    var selectedImage: UIImage? {
         switch self {
         case .feed:
             return Styles.TabbarItem.feed
